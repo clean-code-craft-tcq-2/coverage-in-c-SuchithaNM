@@ -28,11 +28,11 @@ TEST_CASE("Send Email Alert to receipt to notify Normal Tempature  ") {
 }
   */
 TEST_CASE("Classify temperature Breach as a Passive cooling  ") {
-  REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING ,5 ) == TOO_LOW);
+  REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING ,-1 ) == TOO_LOW);
 }
 
 TEST_CASE("Classify temperature Breach as a HIgh active cooling  ") {
-  REQUIRE(classifyTemperatureBreach(HI_ACTIVE_COOLING ,40 ) == TOO_HIGH);
+  REQUIRE(classifyTemperatureBreach(HI_ACTIVE_COOLING ,55 ) == TOO_HIGH);
 }
 
 TEST_CASE("Classify temperature Breach as a Mid active cooling  ") {
