@@ -26,10 +26,10 @@ typedef struct {
 } BatteryCharacter;
 
 typedef enum {
-	SEND_TO_CONTROLLER,
+	SEND_TO_EMAIL_NORMAL,
 	SEND_TO_EMAIL_TOO_LOW,
 	SEND_TO_EMAIL_TOO_HIGH,
-	SEND_TO_EMAIL_NORMAL,
+	SEND_TO_CONTROLLER
 }Targetype;
 
 
