@@ -14,7 +14,7 @@ TEST_CASE("infers the breach according to high limits") {
 TEST_CASE("infers the breach according to Normal ") {
   REQUIRE(inferBreach(20, 5, 40) == NORMAL);
 }
-
+/*
 TEST_CASE("Send Email Alert to receipt to notify  too Low Tempature  ") {
   REQUIRE(sendToEmail(TOO_LOW) == SEND_TO_EMAIL_TOO_LOW);
 }
@@ -25,5 +25,17 @@ TEST_CASE("Send Email Alert to receipt to notify too High Tempature  ") {
 
 TEST_CASE("Send Email Alert to receipt to notify Normal Tempature  ") {
   REQUIRE(sendToEmail(NORMAL) == SEND_TO_EMAIL_NORMAL);
+}
+  */
+TEST_CASE("Cassify temperature Breach as a Passive cooling  ") {
+  REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING ,12 ) == TOO_LOW);
+}
+
+TEST_CASE("Cassify temperature Breach as a Passive cooling  ") {
+  REQUIRE(classifyTemperatureBreach(HI_ACTIVE_COOLING ,35 ) == TOO_HIGH);
+}
+
+TEST_CASE("Cassify temperature Breach as a Passive cooling  ") {
+  REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING ,20 ) == NORMAL);
 }
   
