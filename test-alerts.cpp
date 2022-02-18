@@ -31,11 +31,11 @@ TEST_CASE("Cassify temperature Breach as a Passive cooling  ") {
   REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING ,12 ) == TOO_LOW);
 }
 
-TEST_CASE("Cassify temperature Breach as a Passive cooling  ") {
+TEST_CASE("Cassify temperature Breach as a HIgh active cooling  ") {
   REQUIRE(classifyTemperatureBreach(HI_ACTIVE_COOLING ,35 ) == TOO_HIGH);
 }
 
-TEST_CASE("Cassify temperature Breach as a Passive cooling  ") {
+TEST_CASE("Cassify temperature Breach as a Mid active cooling  ") {
   REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING ,20 ) == NORMAL);
 }
   
