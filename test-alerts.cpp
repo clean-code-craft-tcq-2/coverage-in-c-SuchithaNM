@@ -34,7 +34,7 @@ TEST_CASE("Check and Send Email Alert to receipt to notify  too High Tempature  
 
 TEST_CASE("Check and Send Email Alert to receipt to notify  Noraml Tempature   ") {
 	BatteryCharacter batteryChar = {PASSIVE_COOLING,"BMS"};
-  REQUIRE(checkAndAlert(TO_EMAIL,batteryChar,30) == SEND_TO_EMAIL_NORMAL);
+  REQUIRE(checkAndAlert(TO_EMAIL,batteryChar,40) == SEND_TO_EMAIL_NORMAL);
 }
 
 TEST_CASE("Check and Send Email Alert to receipt to notify too Low Tempearture  ") {
