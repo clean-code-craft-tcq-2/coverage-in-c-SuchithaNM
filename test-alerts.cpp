@@ -28,9 +28,9 @@ TEST_CASE("Classify temperature Breach as a Mid active cooling  ") {
   REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING ,20 ) == NORMAL);
 }
 
-TEST_CASE("Check and Send Email Alert to receipt to notify  too High Tempature  ") {
+TEST_CASE("Check and Send Alert notification to controller ") {
 	BatteryCharacter batteryChar = {PASSIVE_COOLING,"BMS"};
-  REQUIRE(checkAndAlert(TO_EMAIL,batteryChar,45) == SEND_TO_EMAIL_TOO_HIGH);
+  REQUIRE(checkAndAlert(TO_CONTROLLER,batteryChar,30 ) == SEND_TO_CONTROLLER);
 }
 
 TEST_CASE("Check and Send Email Alert to receipt to notify  Noraml Tempature   ") {
@@ -43,7 +43,8 @@ TEST_CASE("Check and Send Email Alert to receipt to notify too Low Tempearture  
   REQUIRE(checkAndAlert(TO_EMAIL,batteryChar,0 ) == SEND_TO_EMAIL_TOO_LOW);
 }
 
-TEST_CASE("Check and Send Alert notification to controller ") {
+TEST_CASE("Check and Send Email Alert to receipt to notify  too High Tempature  ") {
 	BatteryCharacter batteryChar = {PASSIVE_COOLING,"BMS"};
-  REQUIRE(checkAndAlert(TO_CONTROLLER,batteryChar,30 ) == SEND_TO_CONTROLLER);
+  REQUIRE(checkAndAlert(TO_EMAIL,batteryChar,45) == SEND_TO_EMAIL_NORMAL);
 }
+
