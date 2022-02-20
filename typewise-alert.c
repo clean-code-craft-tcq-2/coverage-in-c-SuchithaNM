@@ -9,7 +9,7 @@ BreachLimit_t BreachLimit_Arr[3] = { {0,35,PASSIVE_COOLING},
 				     {0,40,MED_ACTIVE_COOLING} };
 
 BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
-  if(value < lowerLimit) {
+  if(((lowerLimit+upperLimit)/2) < value < lowerLimit) {
     return TOO_LOW;
   }
   if(value > upperLimit) {
