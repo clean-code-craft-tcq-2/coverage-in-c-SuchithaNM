@@ -26,7 +26,7 @@ BreachType classifyTemperatureBreach(CoolingType coolingType, double temperature
 StatusType checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC)
  {
 	BreachType breachType = classifyTemperatureBreach(batteryChar.coolingType, temperatureInC);
-	Statustype checkAndAlertWrapper = (*AlertTargetFunc[alertTarget])(breachType);
+	StatusType checkAndAlertWrapper = (*AlertTargetFunc[alertTarget])(breachType);
 	return checkAndAlertWrapper;
 }
 
