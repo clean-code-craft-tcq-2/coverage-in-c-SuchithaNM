@@ -2,7 +2,7 @@
 
 
 
-Targetype (*AlertTargetFunc[])(BreachType breachType) = { sendToController,sendToEmail };
+StatusType (*AlertTargetFunc[])(BreachType breachType) = { sendToController,sendToEmail };
 
 BreachLimit_t BreachLimit_Arr[3] = { {0,35,PASSIVE_COOLING},
 				     {0,45,HI_ACTIVE_COOLING}, 
@@ -23,14 +23,14 @@ BreachType classifyTemperatureBreach(CoolingType coolingType, double temperature
  	return inferBreach(temperatureInC, BreachLimit_Arr[coolingType].lowerLimit, BreachLimit_Arr[coolingType].upperLimit);
 }
 
-Targetype checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC)
+StatusType checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC)
  {
 	BreachType breachType = classifyTemperatureBreach(batteryChar.coolingType, temperatureInC);
-	Targetype checkAndAlertWrapper = (*AlertTargetFunc[alertTarget])(breachType);
+	Statustype checkAndAlertWrapper = (*AlertTargetFunc[alertTarget])(breachType);
 	return checkAndAlertWrapper;
 }
 
-Targetype sendToController(BreachType breachType)
+StatusType sendToController(BreachType breachType)
 {
   const unsigned short header = 0xfeed;
   printf("%x : %x\n", header, breachType);
