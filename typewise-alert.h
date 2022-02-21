@@ -26,11 +26,11 @@ typedef struct {
 } BatteryCharacter;
 
 typedef enum {
+	SEND_TO_CONTROLLER,
 	SEND_TO_EMAIL_NORMAL,
 	SEND_TO_EMAIL_TOO_LOW,
-	SEND_TO_EMAIL_TOO_HIGH,
-	SEND_TO_CONTROLLER
-}Targetype;
+	SEND_TO_EMAIL_TOO_HIGH	
+}StatusType;
 
 
 typedef struct{
@@ -43,11 +43,11 @@ CoolingType coolingType;
 BreachType inferBreach(double value, double lowerLimit, double upperLimit);
 BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC);
 
-Targetype checkAndAlert( AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC);
+StatusType checkAndAlert( AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC);
 
-Targetype sendToController(BreachType breachType);
-Targetype sendToEmail(BreachType breachType);
-Targetype sendTooLowMessage(const char* recepient);
-Targetype sendTooHighMessage(const char* recepient);
-Targetype sendNormalMessage(const char* recepient);
+StatusType sendToController(BreachType breachType);
+StatusType sendToEmail(BreachType breachType);
+StatusType sendTooLowMessage(const char* recepient);
+StatusType sendTooHighMessage(const char* recepient);
+StatusType sendNormalMessage(const char* recepient);
 
