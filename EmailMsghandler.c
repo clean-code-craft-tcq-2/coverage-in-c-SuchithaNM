@@ -2,10 +2,10 @@
 
 
 /***************************************************EmailMsgHandler.c *************************************************/
-Targetype (*EmailMesssage[])(const char* recepient) = { sendTooLowMessage , sendTooHighMessage, sendNormalMessage };
+StatusType (*EmailMesssage[])(const char* recepient) = { sendNormalMessage, sendTooLowMessage , sendTooHighMessage };
 
 
-Targetype sendToEmail(BreachType breachType) 
+StatusType sendToEmail(BreachType breachType) 
 {
   const char* recepient = "a.b@c.com";
   Targetype EmailMesssageNotify = (*EmailMesssage[breachType])(recepient);
@@ -13,8 +13,14 @@ Targetype sendToEmail(BreachType breachType)
 
 }
 
+StatusType sendNormalMessage(const char* recepient)
+{
+      printf("To: %s\n", recepient);
+      printf("Hi, the temperature is Normal\n");
+	  return SEND_TO_EMAIL_NORMAL;
+}
 
-Targetype sendTooLowMessage(const char* recepient)
+StatusType sendTooLowMessage(const char* recepient)
 {
 	  printf("To: %s\n", recepient);
       printf("Hi, the temperature is too low\n");
@@ -22,7 +28,7 @@ Targetype sendTooLowMessage(const char* recepient)
 
 }
 
-Targetype sendTooHighMessage(const char* recepient)
+StatusType sendTooHighMessage(const char* recepient)
 {
       printf("To: %s\n", recepient);
       printf("Hi, the temperature is too high\n");
@@ -30,9 +36,3 @@ Targetype sendTooHighMessage(const char* recepient)
 }
 
 
-Targetype sendNormalMessage(const char* recepient)
-{
-      printf("To: %s\n", recepient);
-      printf("Hi, the temperature is Normal\n");
-	  return SEND_TO_EMAIL_NORMAL;
-}
