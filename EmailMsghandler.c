@@ -8,7 +8,7 @@ StatusType (*EmailMesssage[])(const char* recepient) = { sendNormalMessage, send
 StatusType sendToEmail(BreachType breachType) 
 {
   const char* recepient = "a.b@c.com";
-  Targetype EmailMesssageNotify = (*EmailMesssage[breachType])(recepient);
+  StatusType EmailMesssageNotify = (*EmailMesssage[breachType])(recepient);
 	  return EmailMesssageNotify;
 
 }
