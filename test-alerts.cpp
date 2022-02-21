@@ -50,7 +50,7 @@ TEST_CASE("Check and Send Email Alert to receipt to notify Tempearture breach as
 TEST_CASE("Check and Send Email Alert to receipt to notify Tempearture breach as a HIgh active cooling  ") {
 	BatteryCharacter batteryChar = {HI_ACTIVE_COOLING,"BMS"};
   REQUIRE(checkAndAlert(TO_EMAIL,batteryChar,25) == SEND_TO_EMAIL_NORMAL);
-  REQUIRE(checkAndAlert(TO_EMAIL,batteryChar,0 ) == SEND_TO_EMAIL_TOO_LOW);
+  REQUIRE(checkAndAlert(TO_EMAIL,batteryChar, -4 ) == SEND_TO_EMAIL_TOO_LOW);
   REQUIRE(checkAndAlert(TO_EMAIL,batteryChar,60) == SEND_TO_EMAIL_TOO_HIGH);
 }
 
